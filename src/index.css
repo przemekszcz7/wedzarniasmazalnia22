@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #F4F1EA;
+  --color-bg-section: #EDE8DC;
+  --color-bg-dark: #1C2118;
+  --color-bg-darker: #111409;
+  --color-moss: #5A7A3A;
+  --color-moss-deep: #3A5225;
+  --color-moss-light: #8AAD5A;
+  --color-moss-pale: #D4E8B8;
+  --color-earth: #8B5E3C;
+  --color-earth-light: #B8845A;
+  --color-amber: #C4822A;
+  --color-amber-light: #E8B96A;
+  --color-mushroom: #A0896A;
+  --color-text: #1C2118;
+  --color-text-muted: #6A7A5A;
+  --color-text-light: #F4F1EA;
+  --color-white: #FDFAF4;
+
+  --font-display: "Playfair Display", serif;
+  --font-subheading: "Lora", serif;
+  --font-body: "Lora", serif;
+  --font-mono: "Courier Prime", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text font-body antialiased selection:bg-moss-pale selection:text-moss-deep;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .bg-texture-linen {
+    background-image: 
+      linear-gradient(90deg, rgba(28, 33, 24, 0.03) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(28, 33, 24, 0.03) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  .bg-texture-wood {
+    background: repeating-linear-gradient(
+      90deg,
+      #111409,
+      #111409 2px,
+      #1C2118 3px,
+      #1C2118 5px
+    );
+  }
+
+  .divider-twine {
+    @apply h-1 border-t-2 border-dashed border-earth/40 my-12;
+    background-image: radial-gradient(circle, var(--earth) 1px, transparent 1px);
+    background-size: 8px 8px;
+  }
+
+  .stamp-badge {
+    @apply relative inline-flex items-center justify-center rounded-full border-2 border-moss opacity-90;
+    transform: rotate(-6deg);
+    box-shadow: inset 0 0 10px rgba(90, 122, 58, 0.1);
+  }
+
+  .section-label {
+    @apply font-mono uppercase tracking-[0.15em] text-moss text-sm mb-4 block;
+  }
+
+  .section-label::before {
+    content: "— ";
+  }
+}
+
+/* Custom organic animations */
+@keyframes smoke {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { transform: translateY(-50px) scale(1.1); opacity: 0.3; }
+  100% { transform: translateY(-100px) scale(1.3); opacity: 0; }
+}
+
+.animate-smoke {
+  animation: smoke 6s ease-in-out infinite;
+}
+

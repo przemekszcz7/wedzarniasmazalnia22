@@ -1,0 +1,8 @@
+{
+  "name": "Wędzarnia Smażalnia 22 - Leśne Smaki z Człopy",
+  "description": "Naturalna wędzarnia i smażalnia ryb w Człopie. Wędliny, ryby, przetwory i grzyby suszone prosto z lasu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
